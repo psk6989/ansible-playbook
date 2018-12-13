@@ -1,0 +1,6 @@
+---
+ - host: webservers
+   remote_user: root
+   tasks: 
+         - name: install httpd server 
+           yum: name=httpd state=present

@@ -1,0 +1,13 @@
+---
+   - hosts: webservers
+     remote_user: t20
+     become: yes
+     tasks:
+       - name: installing httpd server
+         yum: name=httpd1 state=installed
+         ignore_errors: yes 
+       
+              
+
+
+...

@@ -1,0 +1,18 @@
+---
+   - hosts: webservers
+     remote_user: t20
+     become: yes
+     tasks:
+       - name: installing httpd server
+         yum: name=httpd state=installed
+       - name: copy index.html 
+         copy: src=index.html dest=/var/www/html
+       
+         notify: start httpd service
+              
+     handlers: 
+       - name: start httpd service
+         service: name=httpd state=restarted
+
+
+...
